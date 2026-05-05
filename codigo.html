@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Sorpresa Final!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <div id="pantalla-clave" class="tarjeta-clave">
+            <h1>¡Lo lograste, mi amor! ❤️</h1>
+            <p>Ingresa el código secreto que descubriste:</p>
+            
+            <input type="password" id="codigo" placeholder="••••" maxlength="4" pattern="\d*">
+            
+            <button onclick="verificarCodigo()">Desbloquear</button>
+            <p id="error" class="error"></p>
+
+            <div id="bloque-sorpresa" class="oculto">
+                <img src="tu_imagen.jpg" alt="Nuestro momento especial" class="imagen-personalizada">
+                <p class="mensaje-final">
+                    "El mayor tesoro está por llegar a casa: ¡yo! Espérame con tu mejor sonrisa."
+                    <a href="inicio.html">Inicio (Sorpresa)</a>
+                </p>
+                
+                <div class="giralsol-decorativo">🌻</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

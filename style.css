@@ -1,0 +1,217 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #301b4d 0%, #11052c 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contenedor {
+    perspective: 1000px;
+    width: 90%;
+    max-width: 400px;
+    height: 500px;
+}
+
+.tarjeta {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.tarjeta.girada {
+    transform: rotateY(180deg);
+}
+
+.frente, .dorso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.frente {
+    background: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(10px);
+}
+
+.dorso {
+    background: rgba(20, 12, 36, 0.95);
+    backdrop-filter: blur(10px);
+    transform: rotateY(180deg);
+    border: 2px solid #ffd700;
+}
+
+.foto {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ff758c;
+    box-shadow: 0 0 15px rgba(255, 118, 140, 0.4);
+    margin-bottom: 20px;
+    animation: flotar 3s ease-in-out infinite alternate;
+}
+
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #ffd700;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #ffd700;
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.icono-giro {
+    font-size: 1.8rem;
+    color: #ff7eb3;
+    animation: latido 1.5s infinite alternate;
+}
+
+.giralsol, .giralsol-decorativo {
+    font-size: 3rem;
+    animation: girar 4s linear infinite;
+    margin-top: 10px;
+}
+
+.tarjeta-clave {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: aparecer 0.8s ease-out;
+}
+
+.oculto {
+    display: none !important;
+}
+
+input[type="password"] {
+    width: 80%;
+    max-width: 220px;
+    padding: 12px;
+    font-size: 1.6rem;
+    letter-spacing: 12px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffd700;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+input[type="password"]:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+button {
+    background: linear-gradient(90deg, #ff758c 0%, #ff7eb3 100%);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(255, 118, 140, 0.4);
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 118, 140, 0.6);
+    background: linear-gradient(90deg, #ff7eb3 0%, #ff758c 100%);
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    height: 1rem;
+}
+
+.imagen-personalizada {
+    width: 100%;
+    max-width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    margin-bottom: 20px;
+    animation: flotar 3s ease-in-out infinite alternate;
+}
+
+.mensaje-final {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #f1f1f1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes flotar {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
